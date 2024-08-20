@@ -1,0 +1,27 @@
+import tkinter as tk
+import random
+
+root = tk.Tk()
+root.title("Dice Rolling Simulator")
+root.geometry("300x300")
+
+def roll_dice():
+    result = random.randint(1, 6)
+    dice_label.config(text=f'You rolled a {result}!', font=("Helvetica", 24))
+
+dice_label = tk.Label(root, text="", font=("Helvetica", 24))
+dice_label.pack(pady=20)
+
+roll_button = tk.Button(root, text="Roll the Dice", command=roll_dice, font=("Helvetica", 16))
+roll_button.pack(pady=20)
+
+exit_button = tk.Button(root, text="Exit", command=root.quit, font=("Helvetica", 16))
+exit_button.pack(pady=20)
+
+root.mainloop()
+
+def roll_dice():
+    result = random.randint(1, 6)
+    dice_image = tk.PhotoImage(file=f'dice{result}.png')
+    dice_label.config(image=dice_image)
+    dice_label.image = dice_image 
